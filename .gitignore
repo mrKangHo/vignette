@@ -1,0 +1,12 @@
+.DS_Store
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+.swiftpm/
+
+# Tuist-generated — regenerate with `tuist generate`
+*.xcodeproj/
+*.xcworkspace/
+Derived/
+.tuist-bin/
