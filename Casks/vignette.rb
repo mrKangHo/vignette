@@ -1,6 +1,6 @@
 cask "vignette" do
   version "0.1.0"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  sha256 "2472c644651dbe787c55cbd777a0574e9b06bbe26e8e49939ae922b83536b798"
 
   url "https://github.com/mrKangHo/vignette/releases/download/v#{version}/Vignette-#{version}.dmg"
   name "Vignette"
