@@ -39,6 +39,21 @@ no test target yet.
 Since this is `LSUIElement` (agent app), it has no Dock icon or app switcher
 entry when running — look for it in the menu bar.
 
+## Releasing
+
+`.github/workflows/release.yml` builds, packages, and publishes a release
+whenever a `v*` tag is pushed: it ad-hoc signs the Release build (no
+Developer ID is configured for this project), packages it into a DMG via
+`scripts/make_dmg.sh`, attaches that DMG to a GitHub Release, and
+auto-commits the resulting `version`/`sha256` into `Casks/vignette.rb`.
+
+To cut a release: bump `MARKETING_VERSION` in `Project.swift`, commit, then
+tag and push `vX.Y.Z` matching it.
+
+`Casks/vignette.rb` is a Homebrew cask served straight out of this repo
+(not a separate `homebrew-*` tap repo), so users tap it with an explicit
+URL: `brew tap mrKangHo/vignette https://github.com/mrKangHo/vignette`.
+
 ## Architecture
 
 ```

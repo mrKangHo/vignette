@@ -28,7 +28,40 @@ Available in Korean, English, and Japanese.
 
 Vignette uses private, undocumented macOS frameworks to control display
 backlights (see [Why private APIs](#why-private-apis) below), so it can't be
-distributed through the Mac App Store. Build it from source:
+distributed through the Mac App Store, and the builds below aren't signed
+with an Apple Developer ID. Gatekeeper will object on first launch — see the
+note at the end of this section.
+
+### Homebrew
+
+```sh
+brew tap mrKangHo/vignette https://github.com/mrKangHo/vignette
+brew install --cask vignette
+```
+
+(The tap URL has to be given explicitly since this repo isn't named
+`homebrew-vignette`.) Later updates: `brew update && brew upgrade --cask vignette`.
+
+### Direct download
+
+Grab the latest `Vignette-*.dmg` from the
+[Releases page](https://github.com/mrKangHo/vignette/releases), open it, and
+drag Vignette.app into Applications.
+
+### Gatekeeper
+
+Because these builds are ad-hoc signed, not Developer ID–signed, macOS may
+say Vignette.app "is damaged and can't be opened." It isn't — clear the
+quarantine flag instead of trusting that message:
+
+```sh
+xattr -cr /Applications/Vignette.app
+```
+
+Or right-click (Control-click) Vignette.app in Finder and choose "Open" to
+accept the "unidentified developer" warning.
+
+### Building from source
 
 ```sh
 git clone https://github.com/mrKangHo/vignette.git
@@ -69,6 +102,8 @@ tools like MonitorControl/Lunar rely on, resolved dynamically via
 Because of this:
 
 - It's Developer ID/notarization-distributable, not Mac App Store-eligible.
+  (The current releases are only ad-hoc signed, since there's no Developer
+  ID account behind this project yet — see [Installation](#installation).)
 - External monitor brightness control (DDC/CI) is best-effort — it depends
   on your monitor, cable, and any USB-C/Thunderbolt hub in between, and may
   simply not work for a given setup. The software overlay is the guaranteed
