@@ -39,6 +39,19 @@ no test target yet.
 Since this is `LSUIElement` (agent app), it has no Dock icon or app switcher
 entry when running — look for it in the menu bar.
 
+### Menu bar icon
+
+`MenuBarIconView` (used as `MenuBarExtra`'s `label`) renders a template
+`Image` from the `MenuBarIconOff`/`MenuBarIconOn` imagesets
+(`scripts/generate_menubar_icon.py` regenerates them), not live SwiftUI
+`Shape`/`Color` content. That's deliberate: a `Shape`-and-`Color`-based
+label (confirmed with a plain `.background(Color.red)`) silently renders as
+nothing on this project's target OS, while `Text`/`Image` content renders
+fine — `MenuBarExtra`'s custom-label snapshot path doesn't reliably handle
+raw vector `Shape` content. Don't revert to drawing the glyph with
+SwiftUI shapes directly; regenerate the imagesets instead if it needs to
+change.
+
 ## Releasing
 
 `.github/workflows/release.yml` builds, packages, and publishes a release
