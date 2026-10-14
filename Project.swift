@@ -21,7 +21,7 @@ let project = Project(
                 base: [
                     "CODE_SIGN_STYLE": "Automatic",
                     "CURRENT_PROJECT_VERSION": "1",
-                    "MARKETING_VERSION": "0.1.0",
+                    "MARKETING_VERSION": "0.1.1",
                     "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
                     "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor",
                 ]
