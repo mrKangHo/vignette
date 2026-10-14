@@ -1,5 +1,7 @@
 # Vignette
 
+<p align="right"><a href="README.ko.md">한국어</a> · <a href="README.ja.md">日本語</a></p>
+
 A lightweight macOS menu bar app for multi-monitor brightness, and a one-click
 "Movie Mode" that dims every other display so the one playing something gets
 your full attention.
